@@ -6,7 +6,7 @@ const app = express()
 const PORT = precess.env.PORT || 4000
 
 app.get("/", (req, res) => {
-    res.status(200).send("<h1>Hello Backend World</h1>")
+    res.status(200).send("<h1>Hello Backend</h1>")
 })
 
 
