@@ -1,55 +1,53 @@
+
 const express = require('express')
-const format = require('date-format')
+const format = require('date-format');
 
 const app = express()
 
-const PORT = precess.env.PORT || 4000
+const PORT = process.env.PORT || 4000
 
-app.get("/", (req, res) => {
-    res.status(200).send("<h1>Hello Backend</h1>")
+app.get('/', (req, res) => {
+    res.status(200).send("<h1>Hello World!</h1>")
 })
 
-
-app.get("/api/v1/instagram", (req, res) => {
-    const instagramSocial = {
-        userName: "captain.saleh",
-        followers: 5200,
-        follows: 1300,
-        date: format.asString("dd[MM] - hh:mm:ss", new Date())
+app.get('/api/v1/instagram', (req, res) => {
+    const data = {
+        usename: "captain__saleh",
+        followers: 5760,
+        follows: 1350,
+        date: format.asString('dd[MM] - hh:mm:ss', new Date())
     }
-    
-    res.status(200).json({instagramSocial})
+
+    res.status(200).json(data)
 })
 
-app.get("/api/v1/facebook", (req, res) => {
-    const instagramSocial = {
-        userName: "saleh_hadi",
-        followers: 50,
-        follows: 20,
-        date: format.asString("dd[MM] - hh:mm:ss", new Date())
+app.get('/api/v1/facebook', (req, res) => {
+    const data = {
+        usename: "saleh aburah",
+        followers: 760,
+        follows: 350,
+        date: format.asString('dd[MM] - hh:mm:ss', new Date())
     }
-    
-    res.status(200).json(instagramSocial)
+
+    res.status(200).json(data)
 })
 
-app.get("/api/v1/linkedin", (req, res) => {
-    const instagramSocial = {
-        userName: "saleh hadi",
-        followers: 450,
-        follows: 460,
-        date: format.asString("dd[MM] - hh:mm:ss", new Date())
+app.get('/api/v1/linkedin', (req, res) => {
+    const data = {
+        usename: "captain__saleh",
+        followers: 560,
+        follows: 550,
+        date: format.asString('dd[MM] - hh:mm:ss', new Date())
     }
-    
-    res.status(200).json(instagramSocial)
+
+    res.status(200).json(data)
 })
 
-
-app.get("/api/v1/:userWritten",(req, res) => {
-    console.log(req.params.userWritten)
-
-    res.status(200).json({input: req.params.userWritten})
+app.get('/api/v1/:anything', (req, res) => {
+    console.log(req.params.anything)
+    res.status(200).json({param: req.params.anything})
 })
 
-app.listen(PORT, ()=> {
-    console.log(`service is running at ${PORT}`)
+app.listen(PORT, () => {
+    console.log(`server is running at ${PORT}`)
 })
